@@ -615,7 +615,10 @@
         };
 
         $scope.selectedMonthHandle = function manageSelectedMonthHandle(selectedMonthNumber) {
-
+          if (!selectedMonthNumber) {
+            return;
+          }
+          
           $scope.monthNumber = Number($filter('date')(new Date(selectedMonthNumber + '/01/2000'), 'MM'));
           setDaysInMonth($scope.monthNumber, $scope.year);
           setInputValue();
